@@ -1,0 +1,8 @@
+<% @user ||= current_user %>
+<div class="stats">
+  <a href="#">
+    <strong id="stats" class="stat">
+      <%= @user.bookmarks.count %>
+    </strong>
+    Bookmark
+  </a>

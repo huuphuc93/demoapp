@@ -1,0 +1,13 @@
+<%= form_for(@post) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+     <%= f.text_field :title, placeholder: "Title", class:"form-control" %>
+  </div>
+  <div class="field">
+    <%= f.text_area :content, placeholder: "Compose new micropost..." %>
+  </div>
+  <div class="field">
+      <%= f.text_field :all_tags, placeholder: "Tags separated with comma", class:"form-control", "data-role": "tagsinput" %>
+  </div>
+  <%= f.submit "Post", class: "btn btn-primary" %>
+<% end %>
