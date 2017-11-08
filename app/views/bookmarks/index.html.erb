@@ -15,7 +15,12 @@
     <% if @user.bookmarks.any? %>
       <h3>Bookmarks (<%= @user.bookmarks.count %>)</h3>
       <ol class="microposts">
-
+        <%# @user.bookmarks.each do |bookmark| %>
+          <!-- <li> -->
+            <%#= link_to bookmark.post.title, bookmark.post %>
+          <!-- </li> -->
+        <%# end %>
+        <%= render @posts %>
       </ol>
     <% end %>
   </div>

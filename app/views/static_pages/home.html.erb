@@ -71,8 +71,8 @@
         <span class="sr-only">Next</span>
       </a>
     </div><!-- /.carousel -->
-    
-    
+
+
  <!-- Page Content -->
     <div class="container">
 
@@ -88,7 +88,7 @@
           <p class="timestamp">
             <i>Posted <%= time_ago_in_words(@posts.first.created_at) %> ago By <span class="user"><%= link_to @posts.first.user.name, @posts.first.user %></span></i>
           </p>
-          <p><%= @posts.first.content %></p>
+          <p><%= @posts.first.content.truncate(450, separator: " ") %></p>
           <p>
             <%= link_to "Read More...", @posts.first, class: "btn btn-primary btn-lg" %>
           </p>
@@ -128,7 +128,7 @@
               <p class="timestamp">
                 <i>Posted <%= time_ago_in_words(@posts.second.created_at) %> ago By <span class="user"><%= link_to @posts.second.user.name, @posts.second.user %></span></i>
               </p>
-              <p class="card-text"><%= @posts.second.content %></p>
+              <p class="card-text"><%= @posts.second.content.truncate(450, separator: " ") %></p>
             </div>
             <div class="card-footer">
                 <%= link_to "Find Out More!", @posts.second, class: "btn btn-primary" %>
@@ -149,7 +149,7 @@
               <p class="timestamp">
                 <i>Posted <%= time_ago_in_words(@posts.third.created_at) %> ago By <span class="user"><%= link_to @posts.third.user.name, @posts.third.user %></span></i>
               </p>
-              <p class="card-text"><%= @posts.third.content %></p>
+              <p class="card-text"><%= @posts.third.content.truncate(450, separator: " ") %></p>
             </div>
             <div class="card-footer">
              <%= link_to "Find Out More!", @posts.third, class: "btn btn-primary" %>
@@ -170,7 +170,7 @@
               <p class="timestamp">
                 <i>Posted <%= time_ago_in_words(@posts.fourth.created_at) %> ago By <span class="user"><%= link_to @posts.fourth.user.name, @posts.fourth.user %></span></i>
               </p>
-              <p class="card-text"><%= @posts.fourth.content %></p>
+              <p class="card-text"><%= @posts.fourth.content.truncate(450, separator: " ") %></p>
             </div>
             <div class="card-footer">
                 <%= link_to "Find Out More!", @posts.fourth, class: "btn btn-primary" %>
@@ -184,5 +184,5 @@
     </div>
     <!-- /.container -->
 
-    
+
 <% end %>

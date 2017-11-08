@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   resources :users do
-    resources :bookmarks
+    resources :bookmarks, only: [:create, :destroy]
     member do
       get :following, :followers
     end
@@ -23,6 +23,6 @@ Rails.application.routes.draw do
     resources :dislikes, only: [:create, :destroy]
   end
   resources :relationships, only: [:create, :destroy]
-  
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

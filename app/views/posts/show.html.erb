@@ -25,12 +25,10 @@
   Tags: <%= raw @post.tags.map(&:name).map {|t| link_to t, tag_path(t), class: "tag label label-info" }.join(" ") %>
 </nav>
 <nav>
-<% @post.comments.each do |comment|%>
-    <li><%= comment.content %><br/>
-      <span>
-        <%= link_to "delete", post_comment_path(post_id: @post.id, id: comment.id), method: :delete, data: { confirm: "You sure?" } %>
-    </li>
-<% end %>
+<ol class="microposts">
+        <%= render @comment %>
+      </ol>
+      <%= will_paginate @comment %>
 </nav>
 <div class="row">
   <div class="col-md-8">

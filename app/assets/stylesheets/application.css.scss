@@ -319,8 +319,14 @@ form#new_like {
 .users.follow {
   padding: 0;
 }
+.unbookmark {
+  display: block;
+  width: 150px;
+  margin-bottom: 10px;
+}
 #new_bookmark {
-  width: 100px;
+  width: 150px;
+  margin-bottom: 10px;
 }
 
 footer {

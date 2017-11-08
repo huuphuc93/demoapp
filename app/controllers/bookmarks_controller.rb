@@ -9,13 +9,15 @@ class BookmarksController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
+    @bookmark = Bookmark.find params[:id]
+
     @bookmark.destroy
-    redirect_to post_path
+    redirect_to post_path(@bookmark.post)
   end
-  
+
   def index
     @user = current_user
-    @bookmark = @user.bookmarks.map(&:post_id)
+    @posts = @user.bookmark_posts
   end
 end

@@ -1,4 +1,5 @@
-<%= form_for(user_bookmark_path(user_id: current_user.id, id: @post.bookmarks.ids),
-             html: { method: :delete }) do |f| %>
-  <%= f.submit "Unbookmark", class: "btn" %>
-<% end %>
+<%#= form_for([current_user, @post.bookmarks.find_by(user_id: current_user.id)],
+  html: { method: :delete }) do |f| %>
+  <%#= f.submit "Unbookmark", class: "btn" %>
+<%# end %>
+<%= link_to "Unbookmark", [current_user, @post.bookmarks.find_by(user_id: current_user.id)], method: :delete, class: "btn btn-default unbookmark" %>
