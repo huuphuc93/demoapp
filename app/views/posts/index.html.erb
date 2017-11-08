@@ -1,33 +1,12 @@
 <% if @tag.nil? == false %>
-<h1>Tags: <span class=" btn btn-info"><%= @tag.name %></span></h1>
-<ol class="microposts">
-  <% @post.each do |micropost| %>
-    <li id="micropost-<%= micropost.id %>
-      <%= link_to gravatar_for(micropost.user, size: 50), micropost.user %>
-      <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
-      <span class="content">
-        <%= micropost.content %>
-        <%#= image_tag micropost.picture.url if micropost.picture? %>
-      </span>
-      <span class="timestamp">
-        Posted <%= time_ago_in_words(micropost.created_at) %> ago.
-        <% if logged_in? && current_user.admin? || current_user?(micropost.user)%>
-            <%= link_to "delete", micropost, method: :delete,
-                                           data: { confirm: "You sure?" }%>
-          <!--<button class="micropost-delete" id= "<%= micropost.id %>" >Delete</button>-->
-        <% end %>
-      </span>
-    </li>
-  <% end %>
-</ol>
-<% else %>
-<div class="col-md-8">
-    <% if @posts.any? %>
-      <h3>Posts (<%= @posts.count %>)</h3>
-      <ol class="microposts">
-        <%= render @posts %>
-      </ol>
-      <%= will_paginate @posts %>
-    <% end %>
-  </div>
+  <h1>Tags: <span class=" btn btn-info"><%= @tag.name %></span></h1>
 <% end %>
+<div class="col-md-12">
+  <% if @post.any? %>
+    <h3>Posts (<%= @post.count %>)</h3>
+    <ol class="microposts">
+      <%= render @post %>
+    </ol>
+    <%= will_paginate @post %>
+  <% end %>
+</div>

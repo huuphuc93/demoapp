@@ -5,7 +5,7 @@
     <%= image_tag post.picture.url if post.picture? %>
   </span>
   <span class="content">
-    <%= post.content %>
+    <%= post.content.truncate(250, separator: " ") %>
     <% if logged_in? && current_user.admin? || current_user?(post.user)%>
       <%= link_to "delete", post, method: :delete, data: { confirm: "You sure?" }%>
     <% end %>

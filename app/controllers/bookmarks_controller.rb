@@ -11,13 +11,12 @@ class BookmarksController < ApplicationController
 
   def destroy
     @bookmark = Bookmark.find params[:id]
-
     @bookmark.destroy
     redirect_to post_path(@bookmark.post)
   end
 
   def index
     @user = current_user
-    @posts = @user.bookmark_posts
+    @posts = @user.bookmark_posts.paginate(page: params[:page], per_page: 10)
   end
 end

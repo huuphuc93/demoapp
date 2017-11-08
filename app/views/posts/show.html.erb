@@ -1,30 +1,36 @@
 <nav id=" post-<%= @post.id %>">
   <h1 class="content"><%= @post.title%></h1>
-<% if logged_in? %>
-  <%= render "bookmark_form"%>
-<% end %>
-    <%= form_for ([@post, @post.likes.build]) do |f| %>
-      <%= button_tag(type: 'submit', class: "btn like btn-danger") do %>
-        <span class="glyphicon glyphicon-thumbs-up"><%= @post.likes.count %></span> Like
-       <% end %>
-    <% end %>
+  <% if logged_in? %>
+    <%= render "bookmark_form"%>
+  <% end %>
 
- <%= form_for ([@post, @post.dislikes.build]) do |f| %>
-      <%= button_tag(type: 'submit', class: "btn dislike btn-warning") do %>
-        <span class="glyphicon glyphicon-thumbs-down"><%= @post.dislikes.count %></span> Dislike
-       <% end %>
- <% end %>
+  <!-- Like button -->
+  <%= form_for ([@post, @post.likes.build]) do |f| %>
+    <%= button_tag(type: 'submit', class: "btn like btn-danger") do %>
+      <span class="glyphicon glyphicon-thumbs-up"><%= @post.likes.count %></span> Like
+      <% end %>
+  <% end %>
 
+  <!-- Dislike button -->
+  <%= form_for ([@post, @post.dislikes.build]) do |f| %>
+    <%= button_tag(type: 'submit', class: "btn dislike btn-warning") do %>
+      <span class="glyphicon glyphicon-thumbs-down"><%= @post.dislikes.count %></span>  Dislike
+      <% end %>
+  <% end %>
+
+  <!-- Post content -->
   <p class="timestamp">
     <i>Posted <%= time_ago_in_words(@post.created_at) %> ago By <span class="user"><%= link_to @post.user.name, @post.user %></span></i>
   </p>
-   <%= image_tag @post.picture.url if @post.picture? %>
+    <%= image_tag @post.picture.url if @post.picture? %>
   <p class="content"><%= @post.content %></p>
 </nav>
+
 <nav>
   Tags: <%= raw @post.tags.map(&:name).map {|t| link_to t, tag_path(t), class: "tag label label-info" }.join(" ") %>
 </nav>
 <nav>
+  <h3>All Comments</h3>
 <ol class="microposts">
         <%= render @comment %>
       </ol>

@@ -5,14 +5,16 @@ class PostsController < ApplicationController
   def index
     if params[:tag]
       @tag = Tag.find_by(name: params[:tag])
-      @post = Post.tagged_with(params[:tag])
+      @post = Post.tagged_with(params[:tag]).paginate(page: params[:page], per_page: 5)
     else
-      @post = Post.all
+      @post = Post.all.paginate(page: params[:page], per_page: 5)
     end
   end
+
   def new
     @post = Post.new
   end
+
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
@@ -26,7 +28,7 @@ class PostsController < ApplicationController
 
   def show
      @post = Post.find_by(id: params[:id])
-     @comment = @post.comments.paginate(page: params[:page])
+     @comment = @post.comments.paginate(page: params[:page], per_page: 5)
   end
 
   def destroy
