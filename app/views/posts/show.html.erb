@@ -1,6 +1,8 @@
 <nav id=" post-<%= @post.id %>">
   <h1 class="content"><%= @post.title%></h1>
+<% if logged_in? %>
   <%= render "bookmark_form"%>
+<% end %>
     <%= form_for ([@post, @post.likes.build]) do |f| %>
       <%= button_tag(type: 'submit', class: "btn like btn-danger") do %>
         <span class="glyphicon glyphicon-thumbs-up"><%= @post.likes.count %></span> Like
@@ -16,22 +18,27 @@
   <p class="timestamp">
     <i>Posted <%= time_ago_in_words(@post.created_at) %> ago By <span class="user"><%= link_to @post.user.name, @post.user %></span></i>
   </p>
+   <%= image_tag @post.picture.url if @post.picture? %>
   <p class="content"><%= @post.content %></p>
 </nav>
-
+<nav>
+  Tags: <%= raw @post.tags.map(&:name).map {|t| link_to t, tag_path(t), class: "tag label label-info" }.join(" ") %>
+</nav>
+<nav>
 <% @post.comments.each do |comment|%>
-    <%= comment.content %><br/>
-    <%= link_to "delete", post_comment_path(post_id: @post.id, id: comment.id), method: :delete, data: { confirm: "You sure?" } %>
+    <li><%= comment.content %><br/>
+      <span>
+        <%= link_to "delete", post_comment_path(post_id: @post.id, id: comment.id), method: :delete, data: { confirm: "You sure?" } %>
+    </li>
 <% end %>
-
+</nav>
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
+  <div class="col-md-8">
     <%= form_for ([@post, @post.comments.build]) do |f| %>
       <%= f.label :content %>
       <%= f.text_area :content, class: 'form-control' %>
 
       <%= f.submit "Post", class: "btn btn-primary" %>
     <% end %>
-
   </div>
 </div>

@@ -71,4 +71,118 @@
         <span class="sr-only">Next</span>
       </a>
     </div><!-- /.carousel -->
+    
+    
+ <!-- Page Content -->
+    <div class="container">
+
+      <div class="row">
+        <div class="col-sm-8">
+          <h2 class="mt-4"><%= link_to @posts.first.title,  @posts.first %></h2>
+          <%= button_tag(type: 'submit', class: "btn like btn-danger") do %>
+            <span class="glyphicon glyphicon-thumbs-up"><%= @posts.first.likes.count %></span> Like
+          <% end %>
+          <%= button_tag(type: 'submit', class: "btn dislike btn-warning") do %>
+            <span class="glyphicon glyphicon-thumbs-down"><%= @posts.first.dislikes.count %></span> Dislike
+          <% end %>
+          <p class="timestamp">
+            <i>Posted <%= time_ago_in_words(@posts.first.created_at) %> ago By <span class="user"><%= link_to @posts.first.user.name, @posts.first.user %></span></i>
+          </p>
+          <p><%= @posts.first.content %></p>
+          <p>
+            <%= link_to "Read More...", @posts.first, class: "btn btn-primary btn-lg" %>
+          </p>
+        </div>
+        <div class="col-sm-4">
+          <h2 class="mt-4">Contact Us</h2>
+          <address>
+            <strong>Hồ Tùng Mậu</strong>
+            <br>Mai Dịch
+            <br>Cầu Giấy, Hà Nội
+            <br>
+          </address>
+          <address>
+            <abbr title="Phone">P:</abbr>
+            (123) 456-7890
+            <br>
+            <abbr title="Email">E:</abbr>
+            <a href="mailto:#">huuphuc.ns@gmail.com</a>
+          </address>
+        </div>
+      </div>
+      <!-- /.row -->
+
+      <div class="row">
+        <div class="col-sm-4 my-4">
+          <div class="card">
+            <%#= image_tag @posts.second.picture.url if @posts.second.picture?, class: "card-img-top" %>
+            <img class="card-img-top" src="http://placehold.it/300x200" alt="">
+            <div class="card-body">
+              <h4 class="card-title"><%= link_to @posts.second.title,  @posts.second %></h4>
+              <%= button_tag(type: 'submit', class: "btn like btn-danger") do %>
+                <span class="glyphicon glyphicon-thumbs-up"><%= @posts.second.likes.count %></span> Like
+              <% end %>
+              <%= button_tag(type: 'submit', class: "btn dislike btn-warning") do %>
+                <span class="glyphicon glyphicon-thumbs-down"><%= @posts.second.dislikes.count %></span> Dislike
+              <% end %>
+              <p class="timestamp">
+                <i>Posted <%= time_ago_in_words(@posts.second.created_at) %> ago By <span class="user"><%= link_to @posts.second.user.name, @posts.second.user %></span></i>
+              </p>
+              <p class="card-text"><%= @posts.second.content %></p>
+            </div>
+            <div class="card-footer">
+                <%= link_to "Find Out More!", @posts.second, class: "btn btn-primary" %>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 my-4">
+          <div class="card">
+            <img class="card-img-top" src="http://placehold.it/300x200" alt="">
+            <div class="card-body">
+              <h4 class="card-title"><%= link_to @posts.third.title,  @posts.third %></h4>
+              <%= button_tag(type: 'submit', class: "btn like btn-danger") do %>
+                <span class="glyphicon glyphicon-thumbs-up"><%= @posts.third.likes.count %></span> Like
+              <% end %>
+              <%= button_tag(type: 'submit', class: "btn dislike btn-warning") do %>
+                <span class="glyphicon glyphicon-thumbs-down"><%= @posts.third.dislikes.count %></span> Dislike
+              <% end %>
+              <p class="timestamp">
+                <i>Posted <%= time_ago_in_words(@posts.third.created_at) %> ago By <span class="user"><%= link_to @posts.third.user.name, @posts.third.user %></span></i>
+              </p>
+              <p class="card-text"><%= @posts.third.content %></p>
+            </div>
+            <div class="card-footer">
+             <%= link_to "Find Out More!", @posts.third, class: "btn btn-primary" %>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 my-4">
+          <div class="card">
+            <img class="card-img-top" src="http://placehold.it/300x200" alt="">
+            <div class="card-body">
+              <h4 class="card-title"><%= link_to @posts.fourth.title,  @posts.fourth %></h4>
+              <%= button_tag(type: 'submit', class: "btn like btn-danger") do %>
+                <span class="glyphicon glyphicon-thumbs-up"><%= @posts.fourth.likes.count %></span> Like
+              <% end %>
+              <%= button_tag(type: 'submit', class: "btn dislike btn-warning") do %>
+                <span class="glyphicon glyphicon-thumbs-down"><%= @posts.fourth.dislikes.count %></span> Dislike
+              <% end %>
+              <p class="timestamp">
+                <i>Posted <%= time_ago_in_words(@posts.fourth.created_at) %> ago By <span class="user"><%= link_to @posts.fourth.user.name, @posts.fourth.user %></span></i>
+              </p>
+              <p class="card-text"><%= @posts.fourth.content %></p>
+            </div>
+            <div class="card-footer">
+                <%= link_to "Find Out More!", @posts.fourth, class: "btn btn-primary" %>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+    
 <% end %>

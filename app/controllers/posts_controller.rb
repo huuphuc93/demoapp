@@ -26,6 +26,7 @@ class PostsController < ApplicationController
 
   def show
      @post = Post.find_by(id: params[:id])
+     @comment = @post.comments.paginate(page: params[:page])
   end
 
   def destroy
@@ -37,7 +38,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :all_tags)
+    params.require(:post).permit(:title, :content, :all_tags, :picture)
   end
 
   def correct_user

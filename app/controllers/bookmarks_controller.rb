@@ -13,4 +13,9 @@ class BookmarksController < ApplicationController
     @bookmark.destroy
     redirect_to post_path
   end
+  
+  def index
+    @user = current_user
+    @bookmark = @user.bookmarks.map(&:post_id)
+  end
 end
