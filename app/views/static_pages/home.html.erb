@@ -79,10 +79,10 @@
       <div class="row">
         <div class="col-sm-8">
           <h2 class="mt-4"><%= link_to @posts.first.title,  @posts.first %></h2>
-          <%= button_tag(type: 'submit', class: "btn like btn-danger") do %>
+          <%= button_tag(type: 'submit', class: "btn like btn-primary") do %>
             <span class="glyphicon glyphicon-thumbs-up"><%= @posts.first.likes.count %></span> Like
           <% end %>
-          <%= button_tag(type: 'submit', class: "btn dislike btn-warning") do %>
+          <%= button_tag(type: 'submit', class: "btn dislike btn-primary") do %>
             <span class="glyphicon glyphicon-thumbs-down"><%= @posts.first.dislikes.count %></span> Dislike
           <% end %>
           <p class="timestamp">
@@ -119,10 +119,10 @@
             <img class="card-img-top" src="http://placehold.it/300x200" alt="">
             <div class="card-body">
               <h4 class="card-title"><%= link_to @posts.second.title,  @posts.second %></h4>
-              <%= button_tag(type: 'submit', class: "btn like btn-danger") do %>
+              <%= button_tag(type: 'submit', class: "btn like btn-primary") do %>
                 <span class="glyphicon glyphicon-thumbs-up"><%= @posts.second.likes.count %></span> Like
               <% end %>
-              <%= button_tag(type: 'submit', class: "btn dislike btn-warning") do %>
+              <%= button_tag(type: 'submit', class: "btn dislike btn-primary") do %>
                 <span class="glyphicon glyphicon-thumbs-down"><%= @posts.second.dislikes.count %></span> Dislike
               <% end %>
               <p class="timestamp">
@@ -140,10 +140,10 @@
             <img class="card-img-top" src="http://placehold.it/300x200" alt="">
             <div class="card-body">
               <h4 class="card-title"><%= link_to @posts.third.title,  @posts.third %></h4>
-              <%= button_tag(type: 'submit', class: "btn like btn-danger") do %>
+              <%= button_tag(type: 'submit', class: "btn like btn-primary") do %>
                 <span class="glyphicon glyphicon-thumbs-up"><%= @posts.third.likes.count %></span> Like
               <% end %>
-              <%= button_tag(type: 'submit', class: "btn dislike btn-warning") do %>
+              <%= button_tag(type: 'submit', class: "btn dislike btn-primary") do %>
                 <span class="glyphicon glyphicon-thumbs-down"><%= @posts.third.dislikes.count %></span> Dislike
               <% end %>
               <p class="timestamp">
@@ -161,10 +161,10 @@
             <img class="card-img-top" src="http://placehold.it/300x200" alt="">
             <div class="card-body">
               <h4 class="card-title"><%= link_to @posts.fourth.title,  @posts.fourth %></h4>
-              <%= button_tag(type: 'submit', class: "btn like btn-danger") do %>
+              <%= button_tag(type: 'submit', class: "btn like btn-primary") do %>
                 <span class="glyphicon glyphicon-thumbs-up"><%= @posts.fourth.likes.count %></span> Like
               <% end %>
-              <%= button_tag(type: 'submit', class: "btn dislike btn-warning") do %>
+              <%= button_tag(type: 'submit', class: "btn dislike btn-primary") do %>
                 <span class="glyphicon glyphicon-thumbs-down"><%= @posts.fourth.dislikes.count %></span> Dislike
               <% end %>
               <p class="timestamp">

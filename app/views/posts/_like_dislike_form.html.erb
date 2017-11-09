@@ -1,11 +1,20 @@
-<% if @post.likes.find_by(user_id: current_user.id).nil? %>
-    <%= render "like" %>
+<% if logged_in? %>
+    <% if @post.likes.find_by(user_id: current_user.id).nil? %>
+        <%= render "like" %>
+    <% else %>
+        <%= render "unlike" %>
+    <% end %>
+    
+    <% if @post.dislikes.find_by(user_id: current_user.id).nil? %>
+        <%= render "dislike" %>
+    <% else %>
+        <%= render "undislike" %>
+    <% end %>
 <% else %>
-    <%= render "unlike" %>
-<% end %>
-
-<% if @post.dislikes.find_by(user_id: current_user.id).nil? %>
-    <%= render "dislike" %>
-<% else %>
-    <%= render "undislike" %>
+    <%= button_tag(type: 'submit', class: "btn like btn-primary") do %>
+        <span class="glyphicon glyphicon-thumbs-up"><%= @post.likes.count %></span> Like
+    <% end %>
+    <%= button_tag(type: 'submit', class: "btn dislike btn-primary") do %>
+        <span class="glyphicon glyphicon-thumbs-down"><%= @post.dislikes.count %></span> Dislike
+    <% end %>
 <% end %>
