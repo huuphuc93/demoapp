@@ -1,0 +1,5 @@
+<%= form_for ([@post, @post.dislikes.build]) do |f| %>
+    <%= button_tag(type: 'submit', class: "btn dislike btn-primary") do %>
+      <span class="glyphicon glyphicon-thumbs-down"><%= @post.dislikes.count %></span>  Dislike
+    <% end %>
+<% end %>

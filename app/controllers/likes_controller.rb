@@ -5,12 +5,11 @@ class LikesController < ApplicationController
     @like.user = current_user
       if @like.save
         redirect_to post_path(@post)
-      else
       end
   end
 
   def destroy
-    @like = Like.find params [:id]
+    @like = Like.find(params[:id])
     @like.destroy
     redirect_to post_path(@like.post)
   end

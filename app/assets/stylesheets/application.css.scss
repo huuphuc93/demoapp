@@ -268,11 +268,15 @@ span.picture {
   }
 }
 
-form#new_like {
+form#new_like, .button_like {
   display: inline;
   float: left;
   margin-right: 10px;
 }
+form#new_dislike {
+  display: inline;
+}
+
 .gravatar {
   float: left;
   margin-right: 10px;

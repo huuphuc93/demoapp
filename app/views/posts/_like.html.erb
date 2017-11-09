@@ -1,0 +1,5 @@
+ <%= form_for ([@post, @post.likes.build]) do |f| %>
+    <%= button_tag(type: 'submit', class: "btn like btn-primary") do %>
+      <span class="glyphicon glyphicon-thumbs-up"><%= @post.likes.count %></span> Like
+      <% end %>
+  <% end %>

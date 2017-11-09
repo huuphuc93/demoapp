@@ -4,20 +4,9 @@
     <%= render "bookmark_form"%>
   <% end %>
 
-  <!-- Like button -->
-  <%= form_for ([@post, @post.likes.build]) do |f| %>
-    <%= button_tag(type: 'submit', class: "btn like btn-danger") do %>
-      <span class="glyphicon glyphicon-thumbs-up"><%= @post.likes.count %></span> Like
-      <% end %>
-  <% end %>
-
-  <!-- Dislike button -->
-  <%= form_for ([@post, @post.dislikes.build]) do |f| %>
-    <%= button_tag(type: 'submit', class: "btn dislike btn-warning") do %>
-      <span class="glyphicon glyphicon-thumbs-down"><%= @post.dislikes.count %></span>  Dislike
-      <% end %>
-  <% end %>
-
+  <!-- Like, dislike button -->
+ <%= render "like_dislike_form" %>
+ 
   <!-- Post content -->
   <p class="timestamp">
     <i>Posted <%= time_ago_in_words(@post.created_at) %> ago By <span class="user"><%= link_to @post.user.name, @post.user %></span></i>

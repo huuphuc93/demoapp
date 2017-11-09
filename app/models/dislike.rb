@@ -4,11 +4,11 @@ class Dislike < ApplicationRecord
   validates :post, uniqueness: { scope: :user }
   validates :user, uniqueness: { scope: :post }
 
-  after_create :like_dislike
+  after_create :destroy_like
 
   private
 
-  def like_dislike
+  def destroy_like
     like = Like.find_by user_id: self.user_id, post_id: self.post_id
     return if like.nil?
     like.destroy

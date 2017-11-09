@@ -5,7 +5,12 @@ class DislikesController < ApplicationController
     @dislike.user = current_user
       if @dislike.save
         redirect_to post_path(@post)
-      else
       end
+  end
+  
+  def destroy
+    @dislike = Dislike.find(params[:id])
+    @dislike.destroy
+    redirect_to post_path(@dislike.post)
   end
 end

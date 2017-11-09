@@ -1,0 +1,3 @@
+<%= link_to [@post, @post.dislikes.find_by(user_id: current_user.id)], method: :delete, class: "btn dislike btn-danger" do %>
+  <span class="glyphicon glyphicon-thumbs-down"><%= @post.dislikes.count %></span>  Dislike
+<% end %>

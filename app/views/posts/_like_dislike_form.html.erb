@@ -1,0 +1,11 @@
+<% if @post.likes.find_by(user_id: current_user.id).nil? %>
+    <%= render "like" %>
+<% else %>
+    <%= render "unlike" %>
+<% end %>
+
+<% if @post.dislikes.find_by(user_id: current_user.id).nil? %>
+    <%= render "dislike" %>
+<% else %>
+    <%= render "undislike" %>
+<% end %>

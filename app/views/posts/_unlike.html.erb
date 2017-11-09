@@ -1,0 +1,3 @@
+<%= link_to [@post, @post.likes.find_by(user_id: current_user.id)], method: :delete, class: "btn button_like btn-danger" do %>
+    <span class="glyphicon glyphicon-thumbs-up"><%= @post.likes.count %></span> Like
+<% end %>
