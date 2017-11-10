@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     resources :dislikes, only: [:create, :destroy]
   end
   resources :relationships, only: [:create, :destroy]
+  get 'search', to: "static_pages#search"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
