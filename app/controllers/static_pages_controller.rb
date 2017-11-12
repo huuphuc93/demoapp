@@ -1,5 +1,7 @@
 class StaticPagesController < ApplicationController
   def home
+    # if current_user.admin? redirect_to admin_root_path
+    # redirect_to root_path
     @users = User.all
     @posts = Post.all
     @comments = Comment.all
@@ -11,5 +13,7 @@ class StaticPagesController < ApplicationController
 
   def search
     content = params[:search]
+    @post = Post.search(content).paginate(page: params[:page])
+    # byebug
   end
 end

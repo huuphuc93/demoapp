@@ -1,0 +1,24 @@
+<div class="container-fluid">
+ <div class="row">
+  <%= render "admin/admin/sidebar" %>
+  <h2 class="sub-header">User List</h2>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Tag Name</th>
+                 <!--  <th>Post</th>
+                  <th>Content</th> -->
+                  <th>Create At</th>
+                  <th>Delete</th>
+                </tr>
+              </thead>
+              <tbody>
+                <%= render partial: "tag", collection: @tag %>
+              </tbody>
+            </table>
+            <%= will_paginate @tag %>
+          </div>
+ </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="container-fluid">
+ <div class="row">
+  <%= render "admin/admin/sidebar" %>
+  <h2 class="sub-header">User List</h2>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Create At</th>
+                  <th>Role</th>
+                  <th>Delete</th>
+                </tr>
+              </thead>
+              <tbody>
+                <%= render partial: "user", collection: @user %>
+              </tbody>
+            </table>
+            <%= will_paginate @user %>
+          </div>
+ </div>
+</div>

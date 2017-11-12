@@ -1,0 +1,9 @@
+<tr>
+  <td><%= tag.id %></td>
+  <!-- <td><%#= tag.posts %></td> -->
+  <td><%= tag.name %></td>
+  <td><%= tag.created_at %></td>
+  <td>
+    <%= link_to "Delete", admin_tag_path(tag), method: :delete %>
+  </td>
+</tr>

@@ -1,0 +1,13 @@
+<tr>
+  <td><%= comment.id %></td>
+  <td><%= comment.user.name %></td>
+  <td><%= comment.post.title %></td>
+  <td><%= comment.content %></td>
+  <td><%= comment.created_at %></td>
+  <!-- <td>
+    <%#= comment.admin == true ? "Admin" : "Member" %>
+  </td> -->
+  <td>
+    <%= link_to "Delete", admin_comment_path(comment), method: :delete %>
+  </td>
+</tr>

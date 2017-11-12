@@ -13,7 +13,11 @@ class Post < ApplicationRecord
   has_many :bookmark_users, through: :book_marks, source: :user
   mount_uploader :picture, PictureUploader
   validate  :picture_size
-  
+
+  scope :search, -> (content){
+    where( "content LIKE ? or title LIKE ?", "%#{content}%", "%#{content}%")
+  }
+
   def self.tagged_with(name)
     Tag.find_by_name!(name).posts
   end
@@ -27,7 +31,7 @@ class Post < ApplicationRecord
   def all_tags
     tags.map(&:name).join(", ")
   end
-  
+
    private
 
     def picture_size

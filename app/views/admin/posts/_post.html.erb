@@ -1,0 +1,12 @@
+<tr>
+  <td><%= post.id %></td>
+  <td><%= post.user.name %></td>
+  <td><%= post.title %></td>
+  <td><%= post.created_at %></td>
+  <!-- <td>
+    <%#= post.admin == true ? "Admin" : "Member" %>
+  </td> -->
+  <td>
+    <%= link_to "Delete", admin_post_path(post), method: :delete %>
+  </td>
+</tr>
