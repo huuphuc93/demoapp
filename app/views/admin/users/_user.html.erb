@@ -1,6 +1,6 @@
 <tr>
   <td><%= user.id %></td>
-  <td><%= user.name %></td>
+  <td><%= link_to user.name, user_path(user) %></td>
   <td><%= user.email %></td>
   <td><%= user.created_at %></td>
   <td>

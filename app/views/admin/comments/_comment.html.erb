@@ -1,7 +1,7 @@
 <tr>
   <td><%= comment.id %></td>
-  <td><%= comment.user.name %></td>
-  <td><%= comment.post.title %></td>
+  <td><%= link_to comment.user.name, user_path(comment.user) %></td>
+  <td><%= link_to comment.post.title, post_path(comment.post) %></td>
   <td><%= comment.content %></td>
   <td><%= comment.created_at %></td>
   <!-- <td>

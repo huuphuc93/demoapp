@@ -1,20 +1,20 @@
 <% provide(:title, "Home") %>
- <% if logged_in? %>
+<% if logged_in? %>
   <div class="row">
     <aside class="col-md-4">
       <section class="user_info">
-        <%= render 'shared/user_info' %>
+       <%= render 'shared/user_info' %>
       </section>
       <section class="stats">
-        <%= render 'shared/bookmarked' %>
+       <%= render 'shared/bookmarked' %>
       </section>
       <section class="micropost_form">
-        <%= render 'shared/post_form' %>
+       <%= render 'shared/post_form' %>
       </section>
     </aside>
     <div class="col-md-8">
-      <h3>Micropost Feed</h3>
-      <%= render 'shared/feed' %>
+     <h3>Micropost Feed</h3>
+     <%= render 'shared/feed' %>
     </div>
   </div>
 <% else %>
@@ -23,11 +23,11 @@
     ================================================== -->
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
       <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-      </ol>
+      <!--<ol class="carousel-indicators">-->
+      <!--  <li data-target="#myCarousel" data-slide-to="0" class="active"></li>-->
+      <!--  <li data-target="#myCarousel" data-slide-to="1"></li>-->
+      <!--  <li data-target="#myCarousel" data-slide-to="2"></li>-->
+      <!--</ol>-->
       <div class="carousel-inner" role="listbox">
         <div class="item active">
           <%= image_tag "nature-1.jpg", class: "first-slide" %>
@@ -94,20 +94,12 @@
           </p>
         </div>
         <div class="col-sm-4">
-          <h2 class="mt-4">Contact Us</h2>
-          <address>
-            <strong>Hồ Tùng Mậu</strong>
-            <br>Mai Dịch
-            <br>Cầu Giấy, Hà Nội
-            <br>
-          </address>
-          <address>
-            <abbr title="Phone">P:</abbr>
-            (123) 456-7890
-            <br>
-            <abbr title="Email">E:</abbr>
-            <a href="mailto:#">huuphuc.ns@gmail.com</a>
-          </address>
+          <h2 class="mt-4">Hot Post</h2>
+           <ol class="microposts">
+             <% @hot.each do |hot| %>
+              <li> <%= link_to hot.title, hot %></li>
+             <% end %>
+           </ol>
         </div>
       </div>
       <!-- /.row -->
@@ -177,10 +169,8 @@
             </div>
           </div>
         </div>
-
       </div>
       <!-- /.row -->
-
     </div>
     <!-- /.container -->
 <% end %>

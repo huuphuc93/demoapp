@@ -1,77 +1,39 @@
-    <div class="container-fluid">
-      <div class="row">
-        <%= render "sidebar" %>
-        <div class="col-sm-9 col-md-10 main">
-          <h1 class="page-header">Dashboard</h1>
-
-          <div class="row placeholders">
-            <div class="col-xs-6 col-sm-3 placeholder ">
-             <!-- <a href="#" class="btn btn btn-lg">
-              <span class="glyphicon glyphicon-log-in"></span>
-              <%#= @user.count %>
-             </a> -->
-              <%= link_to admin_users_path, class: "btn btn btn-lg" do %>
-               <span class="glyphicon glyphicon-log-in"></span>
-               <%= @user.count %>
-              <% end %>
-<!--<img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail"> -->
-              <h4>Total Users</h4>
-     <!--          <span class="text-muted">Totol Users</span> -->
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <%= link_to admin_users_path, class: "btn btn btn-lg" do %>
-               <span class="glyphicon glyphicon-log-in"></span>
-               <%= @post.count %>
-              <% end %>
-              <h4>Total Posts</h4>
-              <!-- <span class="text-muted">Something else</span> -->
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-         <!--     <a href="#" class="btn btn btn-lg">
-              <span class="glyphicon glyphicon-log-in"></span>
-              <%#= @comment.count %>
-             </a> -->
-              <%= link_to admin_comments_path, class: "btn btn btn-lg" do %>
-               <span class="glyphicon glyphicon-log-in"></span>
-               <%= @comment.count %>
-              <% end %>
-              <!-- <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail"> -->
-              <h4>Total Comments</h4>
-              <!-- <span class="text-muted">Something else</span> -->
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-             <!-- <a href="#" class="btn btn btn-lg">
-              <span class="glyphicon glyphicon-log-in"></span>
-              <%#= @tag.count %>
-             </a> -->
-              <%= link_to admin_tags_path, class: "btn btn btn-lg" do %>
-               <span class="glyphicon glyphicon-log-in"></span>
-               <%= @tag.count %>
-              <% end %>
-              <!-- <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail"> -->
-              <h4>Totals Tags</h4>
-              <!-- <span class="text-muted">Something else</span> -->
-            </div>
+<div class="container-fluid">
+  <div class="row">
+    <%= render "sidebar" %>
+    <div class="col-sm-9 col-md-10 main">
+      <h1 class="page-header">Dashboard</h1>
+        <div class="row placeholders">
+          <div class="col-xs-6 col-sm-3 placeholder ">
+            <%= link_to admin_users_path, class: "btn btn btn-lg" do %>
+             <span class="glyphicon glyphicon-log-in"></span>
+             <%= @user.count %>
+            <% end %>
+            <h4>Total Users</h4>
           </div>
-
-        <!--   <h2 class="sub-header">User List</h2>
-          <div class="table-responsive">
-            <table class="table table-striped"> -->
-              <!-- <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Name</th>
-                  <th>Email</th>
-                  <th>Create At</th>
-                  <th>Role</th>
-                </tr>
-              </thead>
-              <tbody>
-                <%#= render partial: "user", collection: @user %>
-              </tbody>
-            </table>
-            <%#= will_paginate @user %> -->
+          <div class="col-xs-6 col-sm-3 placeholder">
+            <%= link_to admin_users_path, class: "btn btn btn-lg" do %>
+             <span class="glyphicon glyphicon-log-in"></span>
+             <%= @post.count %>
+            <% end %>
+            <h4>Total Posts</h4>
+          </div>
+          <div class="col-xs-6 col-sm-3 placeholder">
+            <%= link_to admin_comments_path, class: "btn btn btn-lg" do %>
+             <span class="glyphicon glyphicon-log-in"></span>
+             <%= @comment.count %>
+            <% end %>
+            <h4>Total Comments</h4>
+          </div>
+          <div class="col-xs-6 col-sm-3 placeholder">
+            <%= link_to admin_tags_path, class: "btn btn btn-lg" do %>
+             <span class="glyphicon glyphicon-log-in"></span>
+             <%= @tag.count %>
+            <% end %>
+            <h4>Totals Tags</h4>
           </div>
         </div>
       </div>
     </div>
+  </div>
+</div>

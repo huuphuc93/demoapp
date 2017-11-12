@@ -1,7 +1,7 @@
 <tr>
   <td><%= post.id %></td>
-  <td><%= post.user.name %></td>
-  <td><%= post.title %></td>
+  <td><%= link_to post.user.name, user_path(post.user) %></td>
+  <td><%= link_to post.title, post_path(post) %></td>
   <td><%= post.created_at %></td>
   <!-- <td>
     <%#= post.admin == true ? "Admin" : "Member" %>

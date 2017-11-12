@@ -6,6 +6,10 @@ class Like < ApplicationRecord
 
   after_create :destroy_dislike
 
+scope :hot, -> {
+  joins(:post).select(:post_id).group("likes.post_id").order("count(*) DESC").limit(5)
+}
+
   private
 
   def destroy_dislike
