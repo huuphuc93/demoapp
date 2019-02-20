@@ -1,3 +1,2 @@
-- George Washington
-- John Adams
-- Thomas Jefferson
+:arrow_right: Redmine:
+:arrow_right: Attachment File:
